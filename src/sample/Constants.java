@@ -15,4 +15,6 @@ public interface Constants {
 
     public static final String COUNTRY_DATA_LOCATION = "src/data/countries.txt";
 
+    public static final String DEFAULT_PROFILE_PIC_LOCATION = "src/resources/profile_pic.png";
+
 }

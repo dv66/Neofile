@@ -3,6 +3,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -10,12 +12,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import sample.Constants;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -116,16 +116,27 @@ public class ProfileController implements Initializable {
 
 
 
-    private void loadImage(){
-//        File file = new File(System.getProperty("user.dir") + "/resources/profile_pic.png");
-//        System.out.println(file.getAbsolutePath());
-//        Image image = new Image(file.getAbsolutePath());
-//        profileImageView.setImage(image);
+    private void loadImage() throws FileNotFoundException{
+        FileInputStream fStream = new FileInputStream(Constants.DEFAULT_PROFILE_PIC_LOCATION);
+        Image image = new Image(fStream);
+        profileImageView.setImage(image);
+    }
+
+
+    public void uploadPhoto(ActionEvent event){
+        System.out.println("photo uploaded");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        // use existing window here, don't create a new one:
+        File file = fileChooser.showOpenDialog(profileImageView.getScene().getWindow());
+        if (file != null) {
+            profileImageView.setImage(new Image(file.toURI().toString()));
+        }
     }
 
 
 
-    private void loadData() throws IOException{
+    private void loadData() throws IOException, FileNotFoundException{
         loadSex();
         loadHeights();
         loadCountries();
@@ -148,6 +159,19 @@ public class ProfileController implements Initializable {
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
                 String selectedCountry = (String)countryChoiceBox.getItems().get((Integer) number2);
                 contactText.setText("+" + phoneCodes.get(selectedCountry));
+            }
+        });
+
+        profileImageView.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>(){
+            @Override
+            public void handle(MouseEvent event) {
+                FileChooser fileChooser = new FileChooser();
+                fileChooser.setTitle("Open Resource File");
+                // use existing window here, don't create a new one:
+                File file = fileChooser.showOpenDialog(profileImageView.getScene().getWindow());
+                if (file != null) {
+                    profileImageView.setImage(new Image(file.toURI().toString()));
+                }
             }
         });
     }

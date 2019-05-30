@@ -17,7 +17,7 @@
                   <Font name="DejaVu Sans Mono Bold" size="17.0" />
                </font>
             </Text>
-            <ImageView fitHeight="161.0" fitWidth="134.0" layoutX="436.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView  fx:id="profileImageView" fitHeight="161.0" fitWidth="134.0" layoutX="436.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="29.0" layoutY="56.0" text="Name" />
             <TextField fx:id="nameText" layoutX="29.0" layoutY="71.0" prefHeight="25.0" prefWidth="340.0" promptText="Enter Full Name" />
             <Label layoutX="31.0" layoutY="120.0" text="Date of Birth" />
