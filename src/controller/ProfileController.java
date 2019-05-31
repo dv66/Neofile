@@ -1,12 +1,15 @@
 package controller;
+import db.DBHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -14,9 +17,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import model.Patient;
 import sample.Constants;
+import utils.Utilities;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +42,19 @@ public class ProfileController implements Initializable {
     public TextField contactText;
 
     @FXML
+    public TextField zipText;
+
+    @FXML
+    public TextField emailText;
+
+    @FXML
+    public TextField cityText;
+
+    @FXML
     public TextField weightText;
+
+    @FXML
+    public TextField occupationText;
 
     @FXML
     public ChoiceBox countryChoiceBox;
@@ -50,10 +71,15 @@ public class ProfileController implements Initializable {
     @FXML
     public ImageView profileImageView;
 
+    @FXML
+    public Button saveButton;
+
 
     private HashMap<String, String> phoneCodes;
 
     private ArrayList countries;
+
+    private String profilePictureLocation;
 
 
 
@@ -116,6 +142,11 @@ public class ProfileController implements Initializable {
 
 
 
+
+
+
+
+
     private void loadImage() throws FileNotFoundException{
         FileInputStream fStream = new FileInputStream(Constants.DEFAULT_PROFILE_PIC_LOCATION);
         Image image = new Image(fStream);
@@ -123,16 +154,11 @@ public class ProfileController implements Initializable {
     }
 
 
-    public void uploadPhoto(ActionEvent event){
-        System.out.println("photo uploaded");
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        // use existing window here, don't create a new one:
-        File file = fileChooser.showOpenDialog(profileImageView.getScene().getWindow());
-        if (file != null) {
-            profileImageView.setImage(new Image(file.toURI().toString()));
-        }
-    }
+
+
+
+
+
 
 
 
@@ -142,6 +168,31 @@ public class ProfileController implements Initializable {
         loadCountries();
         loadImage();
     }
+
+
+
+
+
+    public void savePatientProfile(ActionEvent event) throws IOException, SQLException {
+        Patient patient = new Patient();
+
+        patient.setName(nameText.getText());
+        patient.setBirthday(dateOfBirth.getValue().toString());
+        patient.setSex((String) sexChoiceBox.getValue());
+        patient.setHeight((String) feetChoiceBox.getValue() + "-" + (String) inchChoiceBox.getValue());
+        patient.setWeight(weightText.getText());
+        patient.setOccupation(occupationText.getText());
+        patient.setCountry((String) countryChoiceBox.getValue());
+        patient.setCity(cityText.getText());
+        patient.setZipcode(zipText.getText());
+        patient.setContactNumber(contactText.getText());
+        patient.setEmail(emailText.getText());
+        patient.setProfilePic(profilePictureLocation);
+
+        DBHandler.insertPatient(patient);
+    }
+
+
 
 
     @Override
@@ -166,11 +217,12 @@ public class ProfileController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Resource File");
-                // use existing window here, don't create a new one:
+                fileChooser.setTitle("Choose Photo");
                 File file = fileChooser.showOpenDialog(profileImageView.getScene().getWindow());
                 if (file != null) {
-                    profileImageView.setImage(new Image(file.toURI().toString()));
+                    profilePictureLocation = file.toURI().toString();
+                    profileImageView.setImage(new Image(profilePictureLocation));
+                    profilePictureLocation = profilePictureLocation.substring(5);
                 }
             }
         });

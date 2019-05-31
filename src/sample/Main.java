@@ -30,16 +30,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         setStage(primaryStage);
-        new Utilities().changeScene(Constants.PROFILING_SCENE, stage);
+//        new Utilities().changeScene(Constants.PROFILING_SCENE, stage);
+        new Utilities().changeScene(Constants.HOME_SCENE, stage);
     }
 
 
     public static void main(String[] args) throws SQLException {
+
         launch(args);
 
-//        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost", "root", "captain9396");
-//        System.out.println(connection);
-//        System.exit(1);
     }
 
 
