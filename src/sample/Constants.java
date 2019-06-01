@@ -9,6 +9,7 @@ public interface Constants {
 
 
     public static final String VIEW_LOCATION = "../view/";
+    public static final String TEST_SCENE = VIEW_LOCATION + "test.fxml";
     public static final String STARTING_SCENE = VIEW_LOCATION + "login.fxml";
     public static final String PROFILING_SCENE = VIEW_LOCATION + "profile.fxml";
     public static final String HOME_SCENE = VIEW_LOCATION + "home.fxml";
@@ -30,6 +31,8 @@ public interface Constants {
     public static final String FOLDER_PIC_HOME = "src/resources/folder.png";
     public static final String IMAGES_PIC_HOME = "src/resources/appointment.png";
     public static final String LOGO_PIC_HOME = "src/resources/logo_neofile.png";
+    public static final String ACCOUNT_PIC_HOME = "src/resources/user.png";
+    public static final String QUIT_PIC_HOME = "src/resources/quit.png";
 
 
 

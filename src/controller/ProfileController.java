@@ -198,7 +198,6 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources)  {
         try {
-
             loadData();
 
         }catch (IOException e){

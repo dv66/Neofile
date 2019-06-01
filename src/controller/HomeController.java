@@ -18,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
@@ -42,10 +43,16 @@ public class HomeController implements Initializable {
     private ImageView settingsImageView;
 
     @FXML
+    private ImageView quitImageView;
+
+    @FXML
     private ImageView logo;
 
     @FXML
     private Pane addProfilePane;
+
+    @FXML
+    private ImageView accountIcon;
 
 
     @Override
@@ -59,6 +66,8 @@ public class HomeController implements Initializable {
             loadImage(appointmentsImageView, Constants.IMAGES_PIC_HOME);
             loadImage(settingsImageView, Constants.SETTINGS_PIC_HOME);
             loadImage(logo, Constants.LOGO_PIC_HOME);
+            loadImage(accountIcon, Constants.ACCOUNT_PIC_HOME);
+            loadImage(quitImageView, Constants.QUIT_PIC_HOME);
 
             addProfilePane.setOnMouseClicked(new EventHandler<MouseEvent>(){
                 @Override
@@ -66,6 +75,13 @@ public class HomeController implements Initializable {
                     try {
                         new Utilities().changeScene(Constants.PROFILING_SCENE, Main.getStage());
                     }catch (IOException e){ e.printStackTrace();}
+                }
+            });
+
+            quitImageView.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                @Override
+                public void handle(MouseEvent event) {
+                    System.exit(1);
                 }
             });
 

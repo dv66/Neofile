@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1062.0" style="-fx-background-color: d7d9e0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<Pane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1062.0" style="-fx-background-color: d7d9e0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
       <GridPane layoutX="83.0" layoutY="139.0" prefHeight="507.0" prefWidth="901.0">
         <columnConstraints>
@@ -20,12 +20,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="addProfilePane"  prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+            <Pane fx:id="addProfilePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ImageView fx:id="addProfileImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="62.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Patient Profile">
+                  <Text fill="#416bf4" layoutX="55.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Patient Profile">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -35,10 +35,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1">
                <children>
-                  <ImageView fx:id="viewProfileImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="88.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Profiles" textAlignment="JUSTIFY">
+                  <ImageView fx:id="viewProfileImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="#416bf4" layoutX="81.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Profiles">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -48,10 +48,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="2">
                <children>
-                  <ImageView fx:id="seeHistoryImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="99.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See History">
+                  <ImageView fx:id="seeHistoryImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="#416bf4" layoutX="88.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="See History">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -61,10 +61,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="filesImageView" fitHeight="108.0" fitWidth="107.0" layoutX="97.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="120.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Files">
+                  <ImageView fx:id="filesImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="#416bf4" layoutX="119.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Files">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -74,10 +74,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="appointmentsImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="79.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+                  <ImageView fx:id="appointmentsImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="#416bf4" layoutX="77.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -87,10 +87,10 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <ImageView fx:id="settingsImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="#416bf4" layoutX="107.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+                  <ImageView fx:id="settingsImageView" fitHeight="108.0" fitWidth="107.0" layoutX="87.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="#416bf4" layoutX="103.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
                      <font>
-                        <Font name="Carlito Bold" size="20.0" />
+                        <Font name="Roboto Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -103,6 +103,13 @@
       <Pane prefHeight="90.0" prefWidth="1062.0" style="-fx-background-color: #416bf4;">
          <children>
             <ImageView fx:id="logo" fitHeight="121.0" fitWidth="215.0" layoutX="24.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="accountIcon" fitHeight="51.0" fitWidth="51.0" layoutX="923.0" layoutY="25.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" visible="false" />
+            <ImageView fx:id="quitImageView" fitHeight="20.0" fitWidth="21.0" layoutX="1018.0" layoutY="10.0" opacity="0.8" pickOnBounds="true" preserveRatio="true" />
+            <Text fill="WHITE" layoutX="915.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log Out">
+               <font>
+                  <Font name="Roboto Bold" size="19.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Pane layoutY="721.0" prefHeight="44.0" prefWidth="1062.0" style="-fx-background-color: #ffffff;">
